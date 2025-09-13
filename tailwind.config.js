@@ -1,0 +1,51 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+      },
+      colors: {
+        cream: '#fff8dc',
+        wheat: '#f5deb3',
+        tan: '#d2b48c',
+        brown: {
+          100: '#f7f3e9',
+          200: '#f0e6d2',
+          300: '#e8d5b7',
+          400: '#d2b48c',
+          500: '#bc9a6a',
+          600: '#a0845c',
+          700: '#8b6f47',
+          800: '#6b5b47',
+          900: '#4a3f35',
+        },
+        background: '#fff8dc',
+        foreground: '#6b5b47',
+        card: '#f5deb3',
+        'card-foreground': '#6b5b47',
+        popover: '#f5deb3',
+        'popover-foreground': '#6b5b47',
+        primary: '#d2b48c',
+        'primary-foreground': '#6b5b47',
+        secondary: '#f7f3e9',
+        'secondary-foreground': '#6b5b47',
+        muted: '#f7f3e9',
+        'muted-foreground': '#a0845c',
+        accent: '#f0e6d2',
+        'accent-foreground': '#6b5b47',
+        destructive: '#ef4444',
+        'destructive-foreground': '#ffffff',
+        border: '#f0e6d2',
+        input: '#f5deb3',
+        ring: '#d2b48c',
+      },
+    },
+  },
+  plugins: [],
+}

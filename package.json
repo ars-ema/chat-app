@@ -1,0 +1,41 @@
+{
+  "name": "chatflow-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "reset-db": "node scripts/reset-db.js",
+    "db:push": "prisma db push",
+    "db:generate": "prisma generate"
+  },
+  "dependencies": {
+    "next": "15.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "framer-motion": "^11.0.0",
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "typescript": "^5.0.0",
+    "clsx": "2.1.1",
+    "lucide-react": "0.544.0",
+    "tailwind-merge": "3.3.1",
+    "tailwindcss-animate": "1.0.7",
+    "@vercel/analytics": "1.5.0",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "zod": "^3.22.4",
+    "@prisma/client": "^5.7.1"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0",
+    "postcss": "^8.4.0",
+    "autoprefixer": "^10.4.0",
+    "prisma": "^5.7.1",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/jsonwebtoken": "^9.0.5"
+  }
+}
