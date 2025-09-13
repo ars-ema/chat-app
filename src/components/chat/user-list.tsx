@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
 import { cn } from "@/lib/utils"
+import { generateUserAvatar, getUserDisplayName, getUserColor } from "@/lib/avatar-utils"
 
 interface User {
   id: string
@@ -52,12 +53,15 @@ export function UserList({ users, selectedUserId, onUserSelect }: UserListProps)
           >
             <div className="relative">
               <Avatar className="h-12 w-12 border-2 border-brown-200">
-                <AvatarImage src={user.avatar || "/diverse-user-avatars.png"} alt={user.name} />
-                <AvatarFallback className="bg-tan text-brown-800 font-medium">
-                  {user.name
-                    .split(" ")
-                    .map((n) => n[0])
-                    .join("")}
+                <AvatarImage 
+                  src={user.avatar || generateUserAvatar(user.name, 48)} 
+                  alt={user.name} 
+                />
+                <AvatarFallback 
+                  className="text-white font-medium"
+                  style={{ backgroundColor: getUserColor(user.name) }}
+                >
+                  {getUserDisplayName(user.name)}
                 </AvatarFallback>
               </Avatar>
             </div>

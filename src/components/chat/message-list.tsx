@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { cn } from "@/lib/utils"
 import { useEffect, useRef } from "react"
+import { generateUserAvatar, getUserDisplayName, getUserColor } from "@/lib/avatar-utils"
 
 interface Message {
   id: string
@@ -45,12 +46,15 @@ export function MessageList({ messages, currentUserId }: MessageListProps) {
           >
             {!message.isCurrentUser && (
               <Avatar className="h-8 w-8 border-2 border-brown-200">
-                <AvatarImage src={message.senderAvatar || "/placeholder.svg"} alt={message.senderName} />
-                <AvatarFallback className="bg-tan text-brown-800 text-xs font-medium">
-                  {message.senderName
-                    .split(" ")
-                    .map((n) => n[0])
-                    .join("")}
+                <AvatarImage 
+                  src={message.senderAvatar || generateUserAvatar(message.senderName, 32)} 
+                  alt={message.senderName} 
+                />
+                <AvatarFallback 
+                  className="text-white text-xs font-medium"
+                  style={{ backgroundColor: getUserColor(message.senderName) }}
+                >
+                  {getUserDisplayName(message.senderName)}
                 </AvatarFallback>
               </Avatar>
             )}
@@ -74,12 +78,15 @@ export function MessageList({ messages, currentUserId }: MessageListProps) {
 
             {message.isCurrentUser && (
               <Avatar className="h-8 w-8 border-2 border-brown-200">
-                <AvatarImage src={message.senderAvatar || "/placeholder.svg"} alt={message.senderName} />
-                <AvatarFallback className="bg-tan text-brown-800 text-xs font-medium">
-                  {message.senderName
-                    .split(" ")
-                    .map((n) => n[0])
-                    .join("")}
+                <AvatarImage 
+                  src={message.senderAvatar || generateUserAvatar(message.senderName, 32)} 
+                  alt={message.senderName} 
+                />
+                <AvatarFallback 
+                  className="text-white text-xs font-medium"
+                  style={{ backgroundColor: getUserColor(message.senderName) }}
+                >
+                  {getUserDisplayName(message.senderName)}
                 </AvatarFallback>
               </Avatar>
             )}

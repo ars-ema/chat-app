@@ -87,7 +87,7 @@ export default function ChatPage() {
           id: msg.id,
           senderId: msg.senderId,
           senderName: msg.sender.name,
-          senderAvatar: "/diverse-user-avatars.png",
+          senderAvatar: msg.sender.avatar || null, // Will use generated avatar if null
           content: msg.text,
           timestamp: new Date(msg.createdAt),
           isCurrentUser: msg.senderId === user?.id,
@@ -126,7 +126,7 @@ export default function ChatPage() {
           id: data.message.id,
           senderId: user.id,
           senderName: user.name,
-          senderAvatar: user.avatar,
+          senderAvatar: user.avatar || null, // Will use generated avatar if null
           content: data.message.text,
           timestamp: new Date(data.message.createdAt),
           isCurrentUser: true,
